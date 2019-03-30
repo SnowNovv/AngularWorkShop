@@ -1,0 +1,51 @@
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Name</span>
+  </div>
+  <input type="text" class="form-control" [(ngModel)]="name" name="inputName">
+
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Score</span>
+  </div>
+  <input type="number" class="form-control" [(ngModel)]="score" name="inputScore">
+
+</div>
+<span *ngIf="name!='' ">สวัสดี {{name}}</span>
+<span *ngIf="score>0"><span *ngIf="score>50">เกรด A</span>
+<span *ngIf="score<=50">เกรด F</span></span>
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Student Name</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>BMI</th>
+      <th>ผลลัพธ์</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr >
+      <td>{{student.StudentId}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.weight}}</td>
+      <td>{{student.height}}</td>
+    </tr> -->
+    <tr *ngFor="let s of studentList">
+        <td>{{s.StudentId}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.weight}}</td>
+        <td>{{s.height}}</td>
+        <td>{{s.bmi}}</td>
+        <td *ngIf="s.bmi>25">อ้วน</td>
+        <td *ngIf="s.bmi==25">ปกติ</td>
+        <td *ngIf="s.bmi<25">ผอม</td>
+      </tr>
+  </tbody>
+</table>
